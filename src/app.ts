@@ -1,6 +1,8 @@
 import express from "express";
 import compression from "compression";
 import cors from "cors";
+import { userRouter } from "./modules/user/user.routes";
+import { blogRouter } from "./modules/blog/blog.routes";
 
 const app = express()
 
@@ -16,6 +18,9 @@ app.use(
     credentials: true,
   })
 );
+
+app.use("/api/v1/user", userRouter)
+app.use("/api/v1/blog", blogRouter)
 
 
 app.get("/", (_req,res) =>{
