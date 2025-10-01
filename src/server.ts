@@ -1,6 +1,7 @@
 import http, { Server } from "http";
 import dotenv from "dotenv";
 import app from "./app";
+import { seedSuperAdmin } from "./utils/seedSuperAdmin";
 
 dotenv.config()
 // console.log("Loaded from .env ->", process.env.PORT);
@@ -63,4 +64,7 @@ function handleProcessEvents() {
 
 
 
-startServer()
+(async()=>{
+    await startServer()
+    await seedSuperAdmin()
+})()

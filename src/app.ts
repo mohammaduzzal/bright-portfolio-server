@@ -3,6 +3,7 @@ import compression from "compression";
 import cors from "cors";
 import { userRouter } from "./modules/user/user.routes";
 import { blogRouter } from "./modules/blog/blog.routes";
+import { projectRouter } from "./modules/project/project.routes";
 
 const app = express()
 
@@ -21,6 +22,7 @@ app.use(
 
 app.use("/api/v1/user", userRouter)
 app.use("/api/v1/blog", blogRouter)
+app.use("/api/v1/project", projectRouter)
 
 
 app.get("/", (_req,res) =>{

@@ -16,13 +16,14 @@ const getAllUsers = async(req : Request,res : Response) =>{
         res.status(200).json(result)
     } catch (error) {
         res.status(500).send(error)
+        
     }
 }
 
 
 const getSingleUser = async(req : Request,res : Response) =>{
     try {
-        const result = await UserService.getSingleUser(Number(req.params))
+        const result = await UserService.getSingleUser(Number(req.params.id))
         res.status(200).json(result)
     } catch (error) {
         res.status(500).send(error)
@@ -30,8 +31,20 @@ const getSingleUser = async(req : Request,res : Response) =>{
 }
 
 
+const deleteUser = async(req : Request,res : Response) =>{
+    try {
+        const result = await UserService.deleteUser(Number(req.params.id))
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(500).send(error)
+        console.log(error)
+    }
+}
+
+
 export const UserController={
     createUser,
     getAllUsers,
-    getSingleUser
+    getSingleUser,
+    deleteUser
 }
