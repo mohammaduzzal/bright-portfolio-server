@@ -2,18 +2,18 @@ import { Prisma, User } from "@prisma/client"
 import { prisma } from "../../config/db"
 import bcryptjs from "bcryptjs";
 
-const createUser = async(payload : Prisma.UserCreateInput) : Promise<User> =>{
-    const {password,...rest} = payload
+// const createUser = async(payload : Prisma.UserCreateInput) : Promise<User> =>{
+//     const {password,...rest} = payload
 
-    const hashedPassword = await bcryptjs.hash(password as string, Number(process.env.BCRYPT_SALT_ROUND))
-    const createdUser = await prisma.user.create({
-        data:{
-            ...rest,
-            password : hashedPassword
-        }
-    })
-    return createdUser
-}
+//     const hashedPassword = await bcryptjs.hash(password as string, Number(process.env.BCRYPT_SALT_ROUND))
+//     const createdUser = await prisma.user.create({
+//         data:{
+//             ...rest,
+//             password : hashedPassword
+//         }
+//     })
+//     return createdUser
+// }
 
 
 const getAllUsers = async() =>{
@@ -66,7 +66,7 @@ const deleteUser = async(id : number) =>{
 }
 
 export const UserService={
-    createUser,
+    // createUser,
     getAllUsers,
     getSingleUser,
     deleteUser
