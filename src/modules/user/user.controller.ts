@@ -13,9 +13,17 @@ import { UserService } from "./user.service";
 const getAllUsers = async(req : Request,res : Response) =>{
     try {
         const result = await UserService.getAllUsers()
-        res.status(200).json(result)
+         res.status(200).json({
+            success: true,
+            message: "user created successfully",
+            data: result
+        })
     } catch (error) {
-        res.status(500).send(error)
+         res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      error: error instanceof Error ? error.message : error
+    });
         
     }
 }
@@ -24,9 +32,17 @@ const getAllUsers = async(req : Request,res : Response) =>{
 const getSingleUser = async(req : Request,res : Response) =>{
     try {
         const result = await UserService.getSingleUser(Number(req.params.id))
-        res.status(200).json(result)
+        res.status(200).json({
+            success: true,
+            message: "user fetched successfully",
+            data: result
+        })
     } catch (error) {
-        res.status(500).send(error)
+        res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      error: error instanceof Error ? error.message : error
+    });
     }
 }
 
@@ -34,10 +50,17 @@ const getSingleUser = async(req : Request,res : Response) =>{
 const deleteUser = async(req : Request,res : Response) =>{
     try {
         const result = await UserService.deleteUser(Number(req.params.id))
-        res.status(200).json(result)
+        res.status(200).json({
+            success: true,
+            message: "user deleted successfully",
+            data: result
+        })
     } catch (error) {
-        res.status(500).send(error)
-        console.log(error)
+          res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      error: error instanceof Error ? error.message : error
+    });
     }
 }
 
