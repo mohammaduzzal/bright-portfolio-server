@@ -37,11 +37,7 @@ const getAllProjects = async(req : Request,res : Response) =>{
 const getSingleProject = async(req : Request,res : Response) =>{
     try {
         const result = await ProjectService.getSingleProject(Number(req.params.id))
-         res.status(200).json({
-            success: true,
-            message: "project fetched successfully",
-            data: result
-        })
+         res.status(200).json(result)
     } catch (error) {
           res.status(500).json({
       success: false,

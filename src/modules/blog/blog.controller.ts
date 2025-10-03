@@ -40,11 +40,7 @@ const getAllBlogs = async (req: Request, res: Response) => {
 const getSingleBlog = async (req: Request, res: Response) => {
     try {
         const result = await BlogService.getSingleBlog(Number(req.params.id))
-         res.status(200).json({
-            success: true,
-            message: "Blog fetched successfully",
-            data: result
-        })
+         res.status(200).json(result)
     } catch (error) {
           res.status(500).json({
       success: false,
