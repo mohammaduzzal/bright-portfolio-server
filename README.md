@@ -5,7 +5,14 @@ A simple **Bright-Portfolio-Server** built with **TypeScript, Express.js, Prisma
 
 
 ---
+##  Live Links
 
+- **Live Deployment:** [Bright-Portfolio-Client]()
+  
+  
+- **Live Deployment:** [Bright-Portfolio-Server]()
+
+---
 ## Features
 - TypeScript + Express.js setup
 - Modular project structure
